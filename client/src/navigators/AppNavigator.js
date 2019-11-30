@@ -7,6 +7,12 @@ const AppNavigator = createStackNavigator(
   {
     Main: MainScreen,
     Content: ContentScreen,
+  },
+  {
+    initialRouteName: 'Main',
+    defaultNavigationOptions: {
+      title: 'My App'
+    }
   }
 );
 

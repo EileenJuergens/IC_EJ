@@ -1,12 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const ContentScreen = ()  => {
   return (
     <View>
-      <Text>Test from Contant</Text>
+      <Text style={styles.textStyle}>Test from Contant</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  textStyle: {
+    fontSize: 45
+  }
+});
 
 export default ContentScreen;
