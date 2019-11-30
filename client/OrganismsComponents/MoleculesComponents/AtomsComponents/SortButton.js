@@ -1,10 +1,11 @@
 import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 const SortButton = ()  => {
   return (
-    <div>
-
-    </div>
+    <View>
+      
+    </View>
   );
 };
 

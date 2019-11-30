@@ -2,14 +2,20 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import List from './OrganismsComponents/List';
 
-export default App = () => {
+
+const App = () => {
+
   return (
     <View style={styles.container}>
-      <Text>Testy test from Eileen</Text>
+      <Text>Title test</Text>
+      {/* <Text>{postsList}</Text> */}
       <List/>
     </View>
   );
 };
+
+export default App;
+
 
 const styles = StyleSheet.create({
   container: {

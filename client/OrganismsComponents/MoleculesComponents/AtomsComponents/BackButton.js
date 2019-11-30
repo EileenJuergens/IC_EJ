@@ -2,9 +2,9 @@ import React from 'react';
 
 const BackButton = ()  => {
   return (
-    <div>
-
-    </div>
+    <View>
+      
+    </View>
   );
 };
 
