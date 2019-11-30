@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Content = ()  => {
+const ContentScreen = ()  => {
   return (
     <View>
-      
+      <Text>Test from Contant</Text>
     </View>
   );
 };
 
-export default Content;
+export default ContentScreen;
