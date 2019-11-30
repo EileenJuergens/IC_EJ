@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
+
 
 const List = ()  => {
 
@@ -36,10 +37,18 @@ const List = ()  => {
     { title: "Post 1" },
     { title: "Post 2" },
     { title: "Post 3" }  
-  ];   
+  ];
+  
+  testHandler = () => {
+    console.log("test sucessfull");	
+  }
  
   return (
     <View>
+      <Button 
+      title = 'Test-Btn' 
+      onPress = {testHandler}
+      />
       <FlatList
         keyExtractor={item => item.title} 
         data={children} 
