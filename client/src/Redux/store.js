@@ -1,8 +1,9 @@
 import { createStore, combineReducers } from 'redux';
-import { postsReducer } from './reducers';
+import { postsReducer, loadingReducer } from './reducers';
 
 const reducers = combineReducers({
-  postsReducer
+  postsReducer,
+  loadingReducer
 });
 
 const store = createStore(reducers);
