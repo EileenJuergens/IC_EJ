@@ -1,16 +1,19 @@
-const INITIAL_STATE = {
-  isFetching: false,
-  postsList: [],
-  error: ''
-};
-
-const postsReducer = (state = INITIAL_STATE, action) => {
+const postsReducer = (state = [], action) => {
   switch (action.type) {
     case 'GET_POSTS':
-      return [...state].concat(action.data)
-      default:
-        return state;
+      return [...state, ...action.data]
+    default:
+      return state;
+  };
+};
+
+const loadingReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'GET_LOADING':
+      return action.data
+    default:
+      return state;
   };
 };
     
-export { postsReducer }; 
+export { postsReducer, loadingReducer }; 
