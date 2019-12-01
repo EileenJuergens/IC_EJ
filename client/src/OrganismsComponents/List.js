@@ -1,63 +1,27 @@
 import React from 'react';
-import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList } from 'react-native';
+import ListItem from './MoleculesComponents/ListItem';
 
-
-const List = ()  => {
-
-  const testData = {
-    data: {
-      children: [
-        {
-          data: {
-              title: "Post 1",
-              score: 3,
-              thumbnail: "https://b.thumbs.redditmedia.com/3BOB_FIkG_1W7lwkFCsDrb-kZpRcC5q0y70sAwZLZjM.jpg",
-              created: 1575156041,
-              author: "Author 1",
-              permalink: "/r/pics/comments/e3xxiy/xray_when_you_still_have_manicure/",
-              url: "https://i.imgur.com/xhE2LLb.jpg"
-          }
-        },
-        {
-          data: {
-            title: "Post 2",
-            score: 23,
-            thumbnail: "https://b.thumbs.redditmedia.com/3BOB_FIkG_1W7lwkFCsDrb-kZpRcC5q0y70sAwZLZjM.jpg",
-            created: 1575156041,
-            author: "Author 2",
-            permalink: "/r/pics/comments/e3xxiy/xray_when_you_still_have_manicure/",
-            url: "https://i.imgur.com/xhE2LLb.jpg"
-          }
-        }
-      ]   
-    }
-  }
-
-  const children = [
-    { title: "Post 1" },
-    { title: "Post 2" },
-    { title: "Post 3" }  
-  ];
+const List = ({ postsList })  => {
   
-  testHandler = () => {
-    console.log("test sucessfull");	
-  }
- 
   return (
     <View>
-      <Button 
-      title = 'Test-Btn' 
-      onPress = {testHandler}
-      />
       <FlatList
-        keyExtractor={item => item.title} 
-        data={children} 
+        data={postsList} 
+        keyExtractor={item => item.data.id} 
         renderItem={({ item }) => {
-          return <Text>{item.title}</Text>
+          return <ListItem 
+                    thumbnail={item.data.thumbnail} 
+                    date={item.data.created_utc} 
+                    title={item.data.title} 
+                    author={item.data.author}
+                    score={item.data.score}
+                    comment={item.data.comment}/>
         }}
       />
     </View>
   );
 };
+
 
 export default List;
