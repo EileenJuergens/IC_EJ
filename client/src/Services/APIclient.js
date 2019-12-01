@@ -1,8 +1,11 @@
-const BASE_URL = 'https://api.reddit.com/r/pics/new.json';
+const BASE_URL = 'https://api.reddit.com/r/pics';
 
 const getPostsService = async () => {
   const response = await fetch(BASE_URL);
-  if (response.ok) return response.json();
+  if (response.ok) {
+    const parsedResp = await response.json();
+    return parsedResp;
+  }
   throw new Error('Sorry, something went wrong with the request.');
 };
 
