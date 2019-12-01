@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
-import ListItem from './MoleculesComponents/ListItem';
+import { View, FlatList, StyleSheet } from 'react-native';
+import ListItem from './ListItem';
 
 const List = ({ postsList })  => {
   
   return (
     <View>
       <FlatList
+        style={styles.itemStyle}
         data={postsList} 
         keyExtractor={item => item.data.id} 
         renderItem={({ item }) => {
@@ -16,12 +17,17 @@ const List = ({ postsList })  => {
                     title={item.data.title} 
                     author={item.data.author}
                     score={item.data.score}
-                    comment={item.data.comment}/>
+                    comments={item.data.num_comments}/>
         }}
       />
     </View>
   );
 };
 
+const styles = StyleSheet.create({
+  itemStyle: {
+    margin: 20
+  }
+});
 
 export default List;
