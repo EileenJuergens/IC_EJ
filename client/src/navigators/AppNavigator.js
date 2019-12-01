@@ -11,7 +11,7 @@ const AppNavigator = createStackNavigator(
   {
     initialRouteName: 'Main',
     defaultNavigationOptions: {
-      title: 'My App'
+      title: `Eileen's App`
     }
   }
 );
