@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { getPostsService } from '../Services/APIclient';
 import { getPosts, getLoading } from '../Redux/actions';
-import List from '../OrganismsComponents/List';
+import LottieView from 'lottie-react-native';
+import List from '../components/List';
 
 const MainScreen = ({ postsList, loadingStatus, dispatchGetPosts, dispatchGetLoading })  => {
   useEffect(() => {
@@ -19,10 +20,11 @@ const MainScreen = ({ postsList, loadingStatus, dispatchGetPosts, dispatchGetLoa
   }, []);
 
   const displayContent = () => {
-    if (loadingStatus) return <Text>Loading...</Text>
+    if (loadingStatus) {
+      return <LottieView source={require('../../assets/loader.json')} autoPlay loop/>
+    }
     return (
       <View>
-        <Text style={styles.textStyle}>Test from Main</Text>
         <List postsList={postsList}/>
       </View>
     );
@@ -30,12 +32,6 @@ const MainScreen = ({ postsList, loadingStatus, dispatchGetPosts, dispatchGetLoa
 
   return displayContent();
 };
-
-const styles = StyleSheet.create({
-  textStyle: {
-    fontSize: 45
-  }
-});
 
 const mapStateToProps = state => ({
   postsList: state.postsReducer,
